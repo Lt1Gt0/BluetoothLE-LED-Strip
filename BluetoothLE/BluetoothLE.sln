@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluetoothLE", "BluetoothLE.csproj", "{B43F7243-818D-409E-B764-D4D2E6D19356}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B43F7243-818D-409E-B764-D4D2E6D19356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43F7243-818D-409E-B764-D4D2E6D19356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43F7243-818D-409E-B764-D4D2E6D19356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43F7243-818D-409E-B764-D4D2E6D19356}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7313FD55-40C9-4175-944D-D9A96B9A3C45}
+	EndGlobalSection
+EndGlobal
