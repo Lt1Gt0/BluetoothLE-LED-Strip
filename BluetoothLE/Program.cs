@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Windows.Devices.Bluetooth;
+using Windows.Devices.Bluetooth.GenericAttributeProfile;
 using Windows.Devices.Enumeration;
 
 namespace BluetoothLE
@@ -7,7 +10,7 @@ namespace BluetoothLE
     class Program
     {
         static DeviceInformation device = null;
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // Query for extra properties you want returned
             string[] requestedProperties = { "System.Devices.Aep.DeviceAddress", "System.Devices.Aep.IsConnected" };
@@ -30,9 +33,24 @@ namespace BluetoothLE
 
             // Start the watcher.
             deviceWatcher.Start();
-            while (true) {
-                Console.WriteLine("Press Any Key To exit");
-                Console.ReadKey();
+            while (true)
+            {
+                if (device == null)
+                {
+                    Thread.Sleep(200);
+                }
+                else
+                {
+                    Console.WriteLine("Press Any Key to pair with SP110E");
+                    Console.ReadKey();
+                    BluetoothLEDevice bluetoothLEDevice = await BluetoothLEDevice.FromIdAsync(device.Id);
+
+                    GattDeviceServicesResult result = await bluetoothLEDevice.GetGattServicesAsync();
+
+                    if(result.Status == GattCommunicationStatus.Success) {
+                        var services = result.Services;
+                    }
+                }
             }
         }
 
