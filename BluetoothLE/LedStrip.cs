@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
 using Windows.Phone.System.UserProfile.GameServices.Core;
+using Windows.UI.Core;
 
 public class LedStrip {
     private GattDeviceService Service;
@@ -40,14 +41,13 @@ public class LedStrip {
             throw new Exception("Failed to communicate with SP110E");
         }
     }
-    private async void initializeFFE2(GattCharacteristic ffe2){
-        byte[] ffe1Buffer = new byte[] { 0x01, 0x00};
+    private async void initializeFFE2(GattCharacteristic ffe2) {
+        byte[] ffe1Buffer = new byte[] { 0x01, 0x00 };
         var ffe1Result = await ffe2.WriteValueAsync(ffe1Buffer.AsBuffer());
         if (ffe1Result != GattCommunicationStatus.Success) {
             throw new Exception("Failed to communicate with SP110E");
         }
     }
-
     public async Task<GattCommunicationStatus> turnOn() {
         byte[] byteArrayBuffer = new byte[] { 0xfa, 0x0e, 0xc7, 0xaa };
         return await IO.WriteValueAsync(byteArrayBuffer.AsBuffer());
@@ -64,6 +64,18 @@ public class LedStrip {
         byte[] presetBuffer = new byte[] { preset, 0x00, 0x00, 0x2c };
         return await IO.WriteValueAsync(presetBuffer.AsBuffer());
     }
+    public async Task<GattCommunicationStatus> autoMode() {
+        byte[] autoBuffer = new byte[] { 0x00, 0x00, 0x00, 0x06 };
+        return await IO.WriteValueAsync(autoBuffer.AsBuffer());
+    }
+    public async Task<GattCommunicationStatus> setSpeed(byte speed) {
+        byte[] speedBuffer = new byte[] { speed, 0x00, 0x00, 0x03 };
+        return await IO.WriteValueAsync(speedBuffer.AsBuffer());
+    }
+    public async Task<GattCommunicationStatus> setBrightness(byte brightness) {
+        byte[] brightnessBuffer = new byte[] { brightness, 0x00, 0x00, 0x2A };
+        return await IO.WriteValueAsync(brightnessBuffer.AsBuffer());
+    }
     public async Task<GattCommunicationStatus> susMode() {    
         for(int i = 0; i < 255; i+=15) {
             await setRGB((byte)i, 0x00, 0x00);
@@ -72,5 +84,4 @@ public class LedStrip {
 
         return await setPreset(5);
     }
-
 }

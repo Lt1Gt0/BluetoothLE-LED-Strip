@@ -66,7 +66,11 @@ namespace BluetoothLE
                                 if (result.Status == GattCommunicationStatus.Success) {
                                     LedStrip ledStrip = new LedStrip(service);
                                     ledStrips.Add(ledStrip);
-                                    await ledStrips[0].setRGB(0xFF, 0xFF, 0xFF);
+                                    foreach (LedStrip led in ledStrips) {
+                                        await led.setSpeed(100);
+                                        await led.setBrightness(10);
+                                        await led.setRGB(0xFF, 0xFF, 0xFF);
+                                    }
                                 }
                             }
                         }
@@ -75,12 +79,17 @@ namespace BluetoothLE
                         Thread.Sleep(1000);
                         try {
                             Process amogus = Process.GetProcessesByName("Among Us")[0];
+
                             if(amogus == null) {
                                 continue;
                             }
-                            foreach(LedStrip led in ledStrips) {
-                                await led.susMode();
+                            
+                            if (amogus != null) {
+                                foreach (LedStrip led in ledStrips) {
+                                    await led.susMode();
+                                }
                             }
+
                             amogus.WaitForExit();
                             foreach (LedStrip led in ledStrips) {
                                 await led.setRGB(0xFF, 0xFF, 0xFF);
