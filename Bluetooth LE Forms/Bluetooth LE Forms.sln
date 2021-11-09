@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP110E Forms", "SP110E Forms.csproj", "{B81FA964-D8DA-4AB1-A940-C30071D63BE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluetoothLibrary", "..\BluetoothLibrary\BluetoothLibrary.csproj", "{0752E30B-96D4-4796-B37E-5FA6BC2E07B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B81FA964-D8DA-4AB1-A940-C30071D63BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81FA964-D8DA-4AB1-A940-C30071D63BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81FA964-D8DA-4AB1-A940-C30071D63BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81FA964-D8DA-4AB1-A940-C30071D63BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0752E30B-96D4-4796-B37E-5FA6BC2E07B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0752E30B-96D4-4796-B37E-5FA6BC2E07B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0752E30B-96D4-4796-B37E-5FA6BC2E07B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0752E30B-96D4-4796-B37E-5FA6BC2E07B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43C9EA08-2089-4EC3-BA74-8BBEA0CD4A07}
+	EndGlobalSection
+EndGlobal
